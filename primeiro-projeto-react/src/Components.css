@@ -1,0 +1,27 @@
+.titulo{
+    background-color: lightgrey;
+    border: solid;
+}
+
+table{
+    border: 1px solid #666;
+}
+
+td{
+    width: 30%;
+    height: 7px;
+    border: none none solid solid;
+}
+
+.tituloCategoria{
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bold;
+}
+
+.barraBusca{
+    border-radius: 15px;
+    height: 25px;
+    padding-left:5px;
+    width: 20%
+}
