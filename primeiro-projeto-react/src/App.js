@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import {SearchBar, ProductCategoryRow, ProductRow, ProductTable, FilterableProductTable} from './Components.js';
+import {FilterableProductTable} from './Components.js';
 
 function App() {
   return (

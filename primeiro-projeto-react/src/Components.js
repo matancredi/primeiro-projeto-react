@@ -1,5 +1,6 @@
 import React from 'react';
 import './Components.css';
+import { PRODUCTS } from './mock.js'
 
 export class FilterableProductTable extends React.Component{
     constructor(props){
@@ -9,14 +10,7 @@ export class FilterableProductTable extends React.Component{
             inStockOnly: false
         }
 
-        this.produtos = [
-            {category: 'Sporting Goods', price: '$49.99', stocked: true, name: 'Football'},
-            {category: 'Sporting Goods', price: '$9.99', stocked: true, name: 'Baseball'},
-            {category: 'Sporting Goods', price: '$29.99', stocked: false, name: 'Basketball'},
-            {category: 'Electronics', price: '$99.99', stocked: true, name: 'iPod Touch'},
-            {category: 'Electronics', price: '$399.99', stocked: false, name: 'iPhone 5'},
-            {category: 'Electronics', price: '$199.99', stocked: true, name: 'Nexus 7'}
-          ];
+        this.produtos = PRODUCTS;
 
         this.handleFilterTextChange = this.handleFilterTextChange.bind(this);
         this.handleInStockChange = this.handleInStockChange.bind(this);
@@ -37,7 +31,7 @@ export class FilterableProductTable extends React.Component{
     render(){
         return(
             <div class="tabelaTotal">
-                <h2>Produtos</h2>
+                <h2>Lista de Produtos</h2>
                 <SearchBar 
                 filterText={this.state.filterText}
                 inStockOnly={this.state.inStockOnly}
@@ -58,21 +52,21 @@ export class FilterableProductTable extends React.Component{
 export class SearchBar extends React.Component{
     constructor(props){
         super(props);
-        this.handleFilterTextChange = this.handleFilterTextChange.bind(this);
-        this.handleInStockChange = this.handleInStockChange.bind(this);
+        this.lideComTextoFiltrado = this.lideComTextoFiltrado.bind(this);
+        this.lideComCheckbox = this.lideComCheckbox.bind(this);
     }
-    handleFilterTextChange (e){
-        this.props.onFilterTextChange(e.target.value);
+    lideComTextoFiltrado (event){
+        this.props.onFilterTextChange(event.target.value);
     }
-    handleInStockChange (e){
-        this.props.onInStockChange(e.target.checked);
+    lideComCheckbox (event){
+        this.props.onInStockChange(event.target.checked);
     }
     render(){
         return(
             <form>
-                <input type="text" class="barraBusca" placeholder="Search..." value={this.props.filterText} onChange={this.handleFilterTextChange}/>
+                <input type="text" class="barraBusca" placeholder="Search..." value={this.props.filterText} onChange={this.lideComTextoFiltrado}/>
                 <br></br>
-                <input type="checkbox" checked = {this.props.inStockOnly} onChange={this.handleInStockChange}/>Somente produtos em estoque               
+                <input type="checkbox" checked = {this.props.inStockOnly} onChange={this.lideComCheckbox}/>Somente produtos em estoque               
             </form>
         )
     }
@@ -87,7 +81,7 @@ export class ProductTable extends React.Component{
         const rows = [];
         let primeiraCategoria = 'a';
         produtos.forEach( product => {
-            if (product.name.indexOf(filterText) === -1){
+            if (product.name.toLowerCase().indexOf(filterText.toLowerCase()) === -1){
                 return;
             }
             if (inStockOnly && !product.stocked){
@@ -100,18 +94,20 @@ export class ProductTable extends React.Component{
             rows.push(<ProductRow produto = {product} key={product.name}/>)
         }
             )
+        const tabela = rows.length > 0 ? 
+        <table>
+        <tr class ="titulo">
+            <td>
+                Nome
+            </td>
+            <td>
+                Preço
+            </td>
+        </tr>
+            {rows}
+        </table> : <div class="nenhumResultado"><span> Nenhum resultado encontrado</span></div>
         return(
-            <table>
-                <tr class ="titulo">
-                    <td>
-                        Nome
-                    </td>
-                    <td>
-                        Preço
-                    </td>
-                </tr>
-                    {rows}
-            </table>
+            tabela
         )
     }
 }

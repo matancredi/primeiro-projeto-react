@@ -1,10 +1,13 @@
 .titulo{
-    background-color: lightgrey;
+    background-color: lightseagreen;
     border: solid;
+    color: white;
+    font-weight: bold;
 }
 
 table{
     border: 1px solid #666;
+    border-radius: 5px;
 }
 
 td{
@@ -28,4 +31,15 @@ td{
 
 .tabelaTotal{
     margin-left: 20px;
+}
+
+.nenhumResultado{
+    background-color: lightgoldenrodyellow;
+    border: 1px solid burlywood;
+    padding: 5px;
+    width: 40%;
+}
+
+body{
+    background-color: lightcyan
 }
