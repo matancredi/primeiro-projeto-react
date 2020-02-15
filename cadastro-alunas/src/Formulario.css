@@ -1,0 +1,17 @@
+.formulario {
+    width: 30%;
+    text-align: center;
+    margin: 10px;
+    border: 1px solid;
+  }
+  
+  .formulario input {
+    width: 80%;
+    clear: both;
+    padding: 8px;
+    margin:5px;
+  }
+
+  .botao{
+    margin: 20px;
+  }
