@@ -1,0 +1,38 @@
+DOM: Document Object Model
+- Foto que o browser tira do site, Inspecionar -> Elements
+
+JSX (jsp/razor)
+- merge de javascript com HTML
+- descreve como a UI deve ser
+
+PROPS
+- todo componente do react pode ter, as propriedades tem valores (cor, texto, tamanho) para renderizar
+- é recebida com o mesmo nome que é passada
+- somente leitura, não se deve alterar props diretamente
+
+COMPONENTES: Funções que retornam jsx
+
+function Welcome(props) {
+return <h1> Hello, {props.name} </h1>;
+}
+
+MESMA COISA (ARROW FUNCIONS):
+
+const Welcome = ({name}) => <h1> Hello, {name} </h1>
+const Welcome = ({name, age}) => <h1> Hello, {name} {age} </h1>
+const Welcome = (props) => <h1> Hello, {props.name} </h1>
+const Welcome = (...props) => <h1> Hello, {name} </h1>
+const Welcome = (props) => {
+	const {nome, idade} = props;
+	
+- Desestruturação de objetos
+
+CLASS COMPONENTS (tem estado): Maiores que function components, extende a classe component do react, para gerenciar estados, métodos do ciclo de vida do react
+
+STATE: Propriedades com valores dinâmicos que são alterados pelo método setState() que é assíncrono e precisa ser feito com arrow functions. São definidos no constructor() da classe de um componente e controladas por ele
+
+CICLO DE VIDA: Funções que são executadas e, diferentes momentos da vida do componente - mounting, updating, unmounting
+
+PROPS X STATE: estática x dinâmica
+
+Estado não é persistente, se atualizar a página ele apaga
