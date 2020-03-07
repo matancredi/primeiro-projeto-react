@@ -1,0 +1,26 @@
+body{
+    background-color: grey
+}
+
+.titulo{
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 15px;
+    color: white;
+    padding: 5px 15px 10px 5px;
+    background-color: black;
+    border-radius: 8px;
+}
+
+.descricao{
+    
+}
+
+.item{
+    padding:2%;
+    width: 15%;
+    float: left;
+    height: 500px;
+    border: solid;
+    border-radius: 5px;
+}
