@@ -1,0 +1,19 @@
+HOCS: Forma de rutilizar a lógica de um componente. Função recebe um componente que você criou e te retorna um novo componente comuma lógica complementar
+
+Fragment: Tag para empacotar
+
+ContextAPI: Gera um contexto único de propriedades e estados. Método createContext()
+
+departments
+users
+services -> service
+
+yarn add react-spinkit
+
+componentes controlados e náo controlados
+
+redux
+
+npx create-react-app create-react-redux-app
+create-react-app create-react-redux-app
+npm start

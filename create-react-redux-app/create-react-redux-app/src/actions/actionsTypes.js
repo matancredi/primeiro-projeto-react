@@ -1,0 +1,1 @@
+export const CLICK_UDPATE_VALUE = 'CLICK_UPDATE_VALUE';
