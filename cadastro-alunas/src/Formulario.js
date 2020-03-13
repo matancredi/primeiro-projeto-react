@@ -17,18 +17,33 @@ constructor(props){
     this.recebeFormulario = this.recebeFormulario.bind(this);
 }
 
+validarEmail(email){
+    return email.includes("@") && email.includes(".")
+}
+
 handleChange(name,value){
     this.setState({
         [name]: value
     })
 }
 
-recebeFormulario(event){
-    event.preventDefault();
+recebeFormulario(){
+    //event.preventDefault();
     alert("Aluna adicionada - " + 
     "Nome: " + this.state.nome + " Cidade: " + this.state.cidade +
     " Email: " + this.state.email + " CPF: " + this.state.cpf +
     " Telefone: " + this.state.telefone);
+}
+
+// Validar campos do form quando ocorrer a submissão
+handleSubmitForm = event => {
+    event.preventDefault();
+    let {nome, cidade, email, cpf, telefone} = this.state;
+    if (!nome || !cidade || !email || !cpf || !telefone){
+        return alert ("Você precisa preencher todos os campos")
+    }
+    this.recebeFormulario();
+
 }
 
     render(){
@@ -37,7 +52,7 @@ recebeFormulario(event){
 
             <h1>Cadastro de alunas</h1>
 
-            <form onSubmit={this.recebeFormulario}>
+            <form onSubmit={this.handleSubmitForm}>
 
             <FormularioInput name="nome" campo="Nome Completo" value={this.state.nome} handleChange={this.handleChange} descricao="Digite seu nome" />
             <FormularioInput name="cidade" campo="Cidade" value={this.state.cidade} handleChange={this.handleChange} descricao="Digite a cidade"/>
