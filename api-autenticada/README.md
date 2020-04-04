@@ -1,3 +1,8 @@
+## Descrição
+
+O objetivo era consumir uma API de pesquisa por gifs e exibi-los. 
+https://developers.giphy.com/docs/sdk
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
