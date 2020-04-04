@@ -1,12 +1,23 @@
-const INITIAL_STATE = {
-    toDoList:['Estudar react']
-}
+import { ADD_TODO, TOGGLE_TODO } from '../actions';
 
-export default function todos (state = INITIAL_STATE, action) {
-    switch(action.type) {
-        case 'ADD_TO_DO': 
-            return {...state, toDoList: [...state.toDoList, action.text]}
+const todos = (state = [], action) => {
+    switch (action.type) {
+        case ADD_TODO:
+            return [
+                ...state,
+                {
+                    id: action.id,
+                    text: action.text,
+                    completed: false
+                }
+            ]
+        case TOGGLE_TODO:
+            return state.map(todo => 
+                todo.id === action.id ?
+                    { ...todo, completed: !todo.completed} : todo
+            );
         default:
-            return state
+            return state;
     }
 }
+export default todos

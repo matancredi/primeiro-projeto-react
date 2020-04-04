@@ -11,6 +11,7 @@ import './index.css'
 const store = createStore(todoApp)
 
 ReactDOM.render(
+    //Store 
     <Provider store={store}>
         <App />
     </Provider>
